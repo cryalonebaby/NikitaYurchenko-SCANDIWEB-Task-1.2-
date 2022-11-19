@@ -1,8 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
 
-// JSON.parse(sessionStorage?.cart)?.items ||
-// JSON.parse(sessionStorage?.cart)?.totalQuantity ||
-
 const initialState = {
   items: JSON.parse(sessionStorage.getItem('cart'))?.items || [],
   totalQuantity: JSON.parse(sessionStorage.getItem('cart'))?.totalQuantity || 0,
@@ -18,7 +15,12 @@ const CartSlice = createSlice({
     add(state, action) {
       const newItem = action.payload
 
-      const existingItem = state.items[newItem.productIndex]
+      const existingItem = state.items.find(item => (
+        item.id === newItem.id &&
+        item.currentAttr.capacity === newItem.currentAttr.capacity &&
+        item.currentAttr.color === newItem.currentAttr.color &&
+        item.currentAttr.size === newItem.currentAttr.size
+      ))
 
       if(existingItem) {
         existingItem.quantity++

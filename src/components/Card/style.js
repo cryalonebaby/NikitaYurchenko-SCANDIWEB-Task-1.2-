@@ -42,6 +42,7 @@ export const CardContainer = styled.div`
 export const CardImg = styled.img`
   height: 100%;
   max-width: 100%;
+  object-fit: cover;
   opacity: ${(props) => props.outStock ? '0.5' : '1'};
 `
 

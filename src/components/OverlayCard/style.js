@@ -87,6 +87,7 @@ export const SizeBox = styled.div`
   padding: 0 5px;
   height: 24px;
   border: 1px solid #1D1F22;
+  cursor: ${(props) => props.select ? 'pointer' : 'auto'};
 `
 
 export const SizeTitle = styled.span`

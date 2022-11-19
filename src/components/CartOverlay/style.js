@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 // GENERIC STYLES
 
@@ -133,20 +134,19 @@ export const TotalPrice = styled.span`
   font-weight: 700;
 `
 
-export const GhostBtn = styled.div`
+export const GhostBtn = styled(Link)`
   ${flexCenter}
   ${btnParams}
   background: #FFFFFF;
   border: 1px solid #1D1F22;
-  & a {
-    text-decoration: none;
-  }
+  text-decoration: none;
 `
 
-export const GreenBtn = styled.div`
+export const GreenBtn = styled(Link)`
   ${flexCenter}
   ${btnParams}
   background: #5ECE7B;
+  text-decoration: none;
 `
 
 export const GreenTitle = styled.span`

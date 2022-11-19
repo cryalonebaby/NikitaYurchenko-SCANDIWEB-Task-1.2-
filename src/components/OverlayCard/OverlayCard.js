@@ -112,11 +112,11 @@ class OverlayCard extends Component {
         </ItemsOptions>
         <SmallFlex>
           <RightAmount>
-            <SizeBox onClick={() => add({...product, productIndex})}>
+            <SizeBox select onClick={() => add({...product, productIndex})}>
               <SizeTitle>+</SizeTitle>
             </SizeBox>
             <OptionsAmount>{product.quantity}</OptionsAmount>
-            <SizeBox onClick={() => remove(productIndex)}>
+            <SizeBox select onClick={() => remove(productIndex)}>
               <SizeTitle>-</SizeTitle>
             </SizeBox>
           </RightAmount>

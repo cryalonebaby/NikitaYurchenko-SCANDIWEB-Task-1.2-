@@ -22,7 +22,6 @@ import { setShowCart, add, remove, changeActive } from '../../redux/slices/cart'
 import React, { Component } from 'react'
 import { BsCart2 } from 'react-icons/bs'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import OverlayCard from '../OverlayCard/OverlayCard'
 
 class CartOverlay extends Component {
@@ -81,10 +80,8 @@ class CartOverlay extends Component {
               </TotalContainer>
 
               <TotalContainer>
-                <GhostBtn>
-                  <Link to={'/cart'} onClick={setShowCart}>
-                    <GhostTitle>View bag</GhostTitle>
-                  </Link>
+                <GhostBtn to={'/cart'} onClick={setShowCart}>
+                  <GhostTitle>View bag</GhostTitle>
                 </GhostBtn>
                 <GreenBtn>
                   <GreenTitle>Check Out</GreenTitle>
