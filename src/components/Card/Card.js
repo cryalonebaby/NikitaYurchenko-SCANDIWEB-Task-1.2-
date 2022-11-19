@@ -13,7 +13,7 @@ import { changeProduct } from '../../redux/slices/params';
 
 class Card extends Component {
   render() {
-    const {isOut, image, id, name, symbol, price, changeProduct} = this.props
+    const {isOut, image, id, name, brand, symbol, price, changeProduct} = this.props
     return (
       <CardContent>
         {isOut ? (
@@ -31,7 +31,7 @@ class Card extends Component {
             </Link>   
           )
         }
-        <CardTitle>{name}</CardTitle>
+        <CardTitle>{brand} {name}</CardTitle>
         <CardPrice>{symbol}{price}</CardPrice>
       </CardContent>
     )

@@ -67,7 +67,7 @@ class CartPage extends Component {
                 <OrderPrice>{this.props.totalQuantity}</OrderPrice>
                 <OrderPrice>
                   {currencies[currentCurrency]?.symbol}
-                  { totalWTax} {/*TODO ALWAYS POSITIVE NUMBER */}
+                  {totalWTax}
                 </OrderPrice>
               </OrderRight>
             </OrderInfo>

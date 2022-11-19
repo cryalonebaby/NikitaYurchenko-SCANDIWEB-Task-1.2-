@@ -47,7 +47,7 @@ class CurrencySwitcher extends Component {
           {currency.map((item, i) => (
             <MenuElement 
               key={i} 
-              active={currentCurrencyNumber === i}
+              active={i === currentCurrencyNumber}
               onClick={() => this.handleChoose(i)} 
             >
               <BlockText>{item.symbol} {item.label}</BlockText>

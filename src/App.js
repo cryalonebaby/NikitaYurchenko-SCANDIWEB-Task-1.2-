@@ -52,10 +52,10 @@ class App extends Component {
               <Navbar categories={categories}/>
               <ContentWrapper>
                 <Routes>
-                  <Route exact path={'/'} element={<HomePage categories={categories}/>} />
+                  <Route exact path={'/:category'} element={<HomePage categories={categories}/>} />
                   <Route exact path={'/product/:id'} element={<ProductPage />} />
                   <Route exact path={'/cart'} element={<CartPage />} />
-                  <Route path={'*'} element={<Navigate to={'/'} />} />
+                  <Route path={'*'} element={<Navigate to={`/${categories[0].name}`} />} />
                 </Routes>
                 {isCartOpen ?
                   <Overlay isOpen={true} onClick={this.props.setShowCart}/> :

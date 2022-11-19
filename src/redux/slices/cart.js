@@ -1,10 +1,13 @@
 import {createSlice} from '@reduxjs/toolkit'
 
+// JSON.parse(sessionStorage?.cart)?.items ||
+// JSON.parse(sessionStorage?.cart)?.totalQuantity ||
+
 const initialState = {
-  items: [],
-  totalQuantity: 0,
+  items: JSON.parse(sessionStorage.getItem('cart'))?.items || [],
+  totalQuantity: JSON.parse(sessionStorage.getItem('cart'))?.totalQuantity || 0,
   showCart: false,
-  cartTotalPrices: []
+  cartTotalPrices: JSON.parse(sessionStorage.getItem('cart'))?.cartTotalPrices || []
 }
 
 // TODO divide actions into modules
@@ -38,6 +41,12 @@ const CartSlice = createSlice({
 
         state.totalQuantity++
       }
+
+      sessionStorage.setItem('cart', JSON.stringify({
+        items: state.items, 
+        totalQuantity: state.totalQuantity,
+        cartTotalPrices: state.cartTotalPrices
+      }))
     },
     remove(state, action) {
       const productIndex = action.payload
@@ -58,6 +67,16 @@ const CartSlice = createSlice({
       }
 
       state.totalQuantity--
+
+      sessionStorage.setItem('cart', JSON.stringify({
+        items: state.items, 
+        totalQuantity: state.totalQuantity,
+        cartTotalPrices: state.cartTotalPrices
+      }))
+
+      if(state.totalQuantity === 0) {
+        sessionStorage.removeItem('cart')
+      }
     },
     setShowCart(state) {
       state.showCart = !state.showCart

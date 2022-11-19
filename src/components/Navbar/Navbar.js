@@ -17,8 +17,10 @@ import {changePage} from '../../redux/slices/params'
 import { GET_CURRENCY } from '../../requests'
 
 class Navbar extends Component {
+
   render() {
     const {loading, categories, currentPage, changePage} = this.props
+    
     return (
       <NavWrapper>
         <NavContainer>
@@ -32,11 +34,12 @@ class Navbar extends Component {
                 </NavUlLink>
               ) :
               categories.map((item, i) => {
+                // TODO ACTIVE LINKS
                 return (
-                  <Link to='/' key={item.name} >
+                  <Link to={`/${item.name}`} key={item.name} >
                     <NavUlLink 
-                      onClick={() => changePage(i)} 
-                      active={item.name === categories[currentPage].name}>
+                      onClick={() => changePage(item.name)} 
+                      active={item.name === currentPage || item.name === window.location.href.split('/')[3]}>
                       <NavLink>
                         {item.name}
                       </NavLink>

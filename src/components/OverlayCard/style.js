@@ -13,12 +13,6 @@ const flexCenter = `
   align-items: center;
 `
 
-const cursorPointer = `
-  &:hover {
-    cursor: pointer
-  }
-`
-
 const normalTitle = `
   line-height: 160%;
   font-style: normal;
@@ -88,7 +82,6 @@ export const OptionsAmount = styled.span`
 
 export const SizeBox = styled.div`
   ${flexCenter}
-  ${cursorPointer}
   background: ${(props) => props.active ? '#1D1F22' : '#fff'};
   color: ${(props) => props.active ? '#fff' : '#1D1F22'};
   padding: 0 5px;
@@ -111,7 +104,6 @@ export const ColorContainer = styled.div`
 
 export const ColorBox = styled.div`
   ${flexCenter}
-  ${cursorPointer}
   width: 20px;
   height: 20px;
   background: white;

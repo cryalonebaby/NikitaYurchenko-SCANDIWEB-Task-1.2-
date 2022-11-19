@@ -1,8 +1,8 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
-  currentPage: 0,
-  currentCurrency: 0,
+  currentPage: window.location.href.split('/')[3],
+  currentCurrency: sessionStorage.getItem('currency') || 0,
   currentProduct: '',
   currencies: []
 }
@@ -16,6 +16,7 @@ const ParamsSlice = createSlice({
     },
     changeCurrency(state, action) {
       state.currentCurrency = action.payload
+      sessionStorage.setItem('currency', action.payload)
     },
     changeProduct(state, action) {
       state.currentProduct = action.payload

@@ -35,6 +35,7 @@ class OverlayCard extends Component {
 
   render() {
     const {product, productIndex, add, remove, currentCurrency} = this.props
+
     return (
       <SmallFlex key={productIndex}>
         <ItemsOptions>
@@ -60,7 +61,6 @@ class OverlayCard extends Component {
                         <SizeBox 
                           key={item.id} 
                           active={product.currentAttr.size === i}
-                          onClick={() => this.handleChangeActive('size', i, productIndex)}
                         >
                           <SizeTitle>{item.value}</SizeTitle>
                         </SizeBox>
@@ -78,7 +78,6 @@ class OverlayCard extends Component {
                         <SizeBox 
                           key={item.id} 
                           active={product.currentAttr.capacity === i}
-                          onClick={() => this.handleChangeActive('capacity', i, productIndex)}
                         >
                           <SizeTitle>{item.value}</SizeTitle>
                         </SizeBox>
@@ -97,7 +96,6 @@ class OverlayCard extends Component {
                           <ColorBox 
                             key={item.id} 
                             active={product.currentAttr.color === i}
-                            onClick={() => this.handleChangeActive('color', i, productIndex)}
                           >
                             <Color color={item.value}/>
                           </ColorBox>
@@ -107,6 +105,8 @@ class OverlayCard extends Component {
                   </FlexColumn>
                 )
               }
+
+              return null
             })}
           </CategoryContainer>
         </ItemsOptions>

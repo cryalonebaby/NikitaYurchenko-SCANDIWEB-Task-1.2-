@@ -18,15 +18,21 @@ export const HomeTitle = styled.span`
   text-transform: capitalize;
 `
 
+// display: flex;
+//   flex-wrap: wrap;
+//   justify-content: space-between;
+//   gap: 6rem;
+
 export const Gallery = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 6rem;
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+
   @media(max-width: 1550px) {
-    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
   }
-  @media(max-width: 1075px) {
-    justify-content: center;
+
+  @media(max-width: 900px) {
+    grid-template-columns: 1fr;
   }
 `

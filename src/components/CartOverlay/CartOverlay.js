@@ -37,7 +37,7 @@ class CartOverlay extends Component {
       setShowCart
     } = this.props
 
-    const cartTotalAmount = (cartTotalPrices.length > 0 
+    const cartTotalAmount = (cartTotalPrices[currentCurrency] > 0 
       ? cartTotalPrices[currentCurrency]
       : 0
     ).toFixed(2)
@@ -61,8 +61,10 @@ class CartOverlay extends Component {
                 {this.props.items.map((product, productIndex) => {
                   return (
                     <OverlayCard
+                      key={productIndex}
                       product={product}
                       productIndex={productIndex}
+                      currentCurrency={currentCurrency}
                     />
                   )
                 })}

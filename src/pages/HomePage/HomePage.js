@@ -11,26 +11,28 @@ import { ALL_PRODUCTS } from '../../requests';
 
 class HomePage extends Component {
   render() {
-    const {categories, currentPage, currentCurrency} = this.props
-    const currentCategoryName = categories[currentPage].name
+    const {currentPage, currentCurrency} = this.props
     const currentCurrencyNumber = currentCurrency
     return (
       <HomeWrapper>
         <HomeTitle>
-          {currentCategoryName}
+          {currentPage}
         </HomeTitle>
+
         <Gallery>
-          <Query query={ALL_PRODUCTS} variables={{input: {title: currentCategoryName}}}>
+          <Query query={ALL_PRODUCTS} variables={{input: {title: currentPage}}}>
             {({loading, data}) => {
               if(loading) return <h1>Loading...</h1>
 
               const {category} = data
+
               return category.products.map(product => (
                 <Card 
                   id={product.id} 
                   key={product.id} 
                   isOut={!product.inStock}
                   image={product.gallery[0]}
+                  brand={product.brand}
                   name={product.name}
                   price={product.prices[currentCurrencyNumber].amount}
                   symbol={product.prices[currentCurrencyNumber].currency.symbol}

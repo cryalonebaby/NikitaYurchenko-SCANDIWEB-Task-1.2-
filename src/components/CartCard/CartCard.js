@@ -75,7 +75,7 @@ class CartCard extends Component {
     const {product, currentCurrency, productIndex, add, remove} = this.props
     
     return (
-      <Item onClick={() => console.log(productIndex)}>
+      <Item>
         <ItemLeft>
           <TitleContainer>
             <InfoBoldTitle>{product.brand}</InfoBoldTitle>
@@ -96,7 +96,6 @@ class CartCard extends Component {
                   <SizeBox 
                     key={i} 
                     active={product.currentAttr.size === i}
-                    onClick={() => this.handleChangeActive('size', i, productIndex)}
                   >
                     <SizeTitle>{item.value}</SizeTitle>
                   </SizeBox>
@@ -113,7 +112,6 @@ class CartCard extends Component {
                   <SizeBox 
                     key={i} 
                     active={product.currentAttr.capacity === i}
-                    onClick={() => this.handleChangeActive('capacity', i, productIndex)}
                   >
                     <SizeTitle>{item.value}</SizeTitle>
                   </SizeBox>
@@ -130,7 +128,6 @@ class CartCard extends Component {
                   <ColorBox 
                     key={i} 
                     active={product.currentAttr.color === i}
-                    onClick={() => this.handleChangeActive('color', i, productIndex)}
                   >
                     <Color color={item.value} />
                   </ColorBox>
@@ -138,6 +135,8 @@ class CartCard extends Component {
                 </SmallFlex>
               </Category>
             )
+
+            return null
 
           })}
           </CategoryContainer>

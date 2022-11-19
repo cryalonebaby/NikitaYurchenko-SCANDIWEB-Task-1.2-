@@ -27,7 +27,7 @@ import {Query} from '@apollo/client/react/components'
 import {connect} from 'react-redux'
 import { add } from '../../redux/slices/cart';
 import { ONE_PRODUCT } from '../../requests';
-import DOMPurify from 'dompurify'
+import parse from 'html-react-parser'
 
 class ProductPage extends Component {
 
@@ -146,6 +146,8 @@ class ProductPage extends Component {
                             </Category>
                           )
                         }
+
+                        return null
                       })}
                     </CategoryContainer>
                     <Category>
@@ -158,9 +160,9 @@ class ProductPage extends Component {
                     <Btn onClick={() => this.addToCart(product)}>
                       <BtnTitle>Add to Cart</BtnTitle>
                     </Btn>
-                    <Desc dangerouslySetInnerHTML={{
-                      __html: DOMPurify.sanitize(product.description) // sanitize html from server
-                    }}/>
+                    
+                    <Desc>{parse(product.description)}</Desc>
+
                   </InfoContainer>
                 </BigContainer>
               </>

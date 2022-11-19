@@ -38,11 +38,18 @@ export const PageWrapper = styled.div`
 
 export const SmallPics = styled.div`
   ${flexColumn}
+  max-height: 31.938rem;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   gap: 2.5rem;
 `
 
 export const Pic = styled.img`
   width: 5rem;
+  height: 5rem;
+  object-fit: cover;
   ${cursorPointer}
 `
 
@@ -53,6 +60,8 @@ export const BigContainer = styled.div`
 
 export const BigPic = styled.img`
   width: 38.125rem;
+  height: 31.938rem;
+  object-fit: cover;
 `
 
 export const InfoContainer = styled.div`

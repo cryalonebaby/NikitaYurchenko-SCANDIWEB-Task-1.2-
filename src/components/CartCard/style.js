@@ -92,7 +92,6 @@ export const SmallFlex = styled.div`
 
 export const SizeBox = styled.div`
   ${flexCenter}
-  ${cursorPointer}
   width: 3.938rem;
   height: 2.813rem;
   border: 1px solid #1D1F22;
@@ -112,7 +111,6 @@ export const SizeTitle = styled.span`
 
 export const ColorBox = styled.div`
   ${flexCenter} 
-  ${cursorPointer}
   width: 36px;
   height: 36px;
   background: white;
@@ -163,12 +161,14 @@ export const AmountText = styled.span`
 
 export const PicContainer = styled.div`
   width: 12.5rem;
+  height: 18rem;
   position: relative;
 `
 
 export const Pic = styled.img`
   width: 100%;
   height: 100%;
+  object-fit: cover;
 `
 
 export const PicSwitchContainer = styled.div`
